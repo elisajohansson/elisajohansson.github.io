@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+p {
+  text-align: center;
+  font-size: 60px;
+  margin-top: 250px;
+
+}
+</style>
+</head>
+<body>
+
+<p id="countdown"></p>
+
+
+<script>
+
+document.body.style.backgroundColor = "#000000";
+const div = document.getElementById("countdown")
+div.style.color = "red";
+document.getElementById("countdown").style.fontFamily = "stencil";
+document.getElementById("countdown").style.border = "thick solid #FF0000";
+document.getElementById("countdown").style.padding = "40px";
+
+var countDownDate = new Date("December 16, 2022 13:55:25").getTime();
+
+var x = setInterval(function() {
+
+  var now = new Date().getTime();
+    
+  var distance = countDownDate - now;
+    
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+  document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+    
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("countdown").innerHTML = "Latitude 40.692060, Longitude-111.957910";
+  }
+}, 1000);
+
+</script>
+
+</body>
+</html>
